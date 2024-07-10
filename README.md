@@ -1,84 +1,15 @@
 # Atm_Booth
 
-#This_is_my_project_based_on_ATMBOOTH. Thank you.
+This Java-based ATM project simulates the core functionalities of an Automated Teller Machine. The project includes the following features:
 
-import java.util.Scanner;
+PIN Verification: Users must enter a correct PIN (3456) to access the ATM menu. Incorrect PIN entries prompt the user to re-enter the PIN.
 
-public class ATM {
-    float Balance;
-    int PIN = 3456;
-    public static void main(String[] args) {
-      ATM obj = new ATM();
-      obj.checkPIN();
-    }
+Menu Options:
 
-    public void checkPIN(){
-        System.out.println("ENTER YOUR PIN: ");
-        Scanner sc = new Scanner(System.in);
-        int enteredpin = sc.nextInt();
-        
-        if (enteredpin == PIN) {
-            menu();
-        } 
-        else {
-            System.out.println("Wrong Pin");
-            checkPIN();
-        }
-    }
+Check Balance: Displays the current account balance.
+Withdraw Money: Allows the user to withdraw a specified amount if the balance is sufficient. It updates and displays the new balance after the transaction.
+Deposit Money: Enables the user to deposit a specified amount into the account. The new balance is displayed after the deposit.
+Exit: Returns the user to the PIN entry screen.
+Error Handling: The system prompts the user for valid inputs and handles insufficient balance situations gracefully.
 
-    public void checkbalance(){
-        System.out.println("Balance: " + Balance);
-        menu();
-    }
-
-    public void withdrawn() {
-        System.out.println("Enter amount to withdraw: ");
-        Scanner sc = new Scanner(System.in);
-        float money = sc.nextFloat();
-
-        if (Balance < money) {
-            System.out.println("Insufficient balance");
-        } else {
-            Balance = Balance - money;
-            System.out.println("Money withdrawn successfully");
-            System.out.println("new money: "+ Balance);
-        }
-        menu();
-    }
-
-    public void deposit() {
-        System.out.println("Enter the deposit amount: ");
-        Scanner sc = new Scanner(System.in);
-        float money = sc.nextFloat();
-        Balance = Balance + money;
-        System.out.println("Deposit successful");
-        System.out.println("new money: "+ Balance);
-        menu();
-    }
-
-    public void menu() {
-        System.out.println("1: Check Balance");
-        System.out.println("2: Withdraw Money");
-        System.out.println("3: Deposit Money");
-        System.out.println("4: Exit");
-
-        Scanner sc = new Scanner(System.in);
-        int entered = sc.nextInt();
-        
-        if (entered == 1) {
-            checkbalance();
-        } 
-        else if (entered == 2) {
-            withdrawn();
-        } 
-        else if (entered == 3) {
-            deposit();
-        } 
-        else if (entered == 4) {
-            checkPIN(); 
-        } else {
-            System.out.println("Invalid option. Please enter a valid choice.");
-            menu(); 
-        }
-    }
-}
+This project demonstrates basic concepts in Java such as classes, methods, user input handling, and conditional statements, providing a foundational understanding of how real-world ATM systems operate.
